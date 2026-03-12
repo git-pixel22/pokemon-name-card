@@ -186,14 +186,7 @@ function shareOnTwitter() {
   if (!lastResult) return;
   const d = lastResult;
 
-  const tweet = [
-    `My name says I'm ${d.pokemon_name} — a Gen ${d.generation} ${d.types.join('/')} type ✨`,
-    ``,
-    `Vibe: ${capitalize(d.vibe)} ${d.country_flag}`,
-    ``,
-    `Find yours 👇`,
-    `#PokémonNameCard #Pokemon`,
-  ].join('\n');
+  const tweet = `I'm ${d.pokemon_name} ${d.country_flag}\nGen ${d.generation} · ${d.types.join('/')} · ${capitalize(d.vibe)}\n\npokéname.vercel.app`;
 
   window.open(`https://x.com/compose/tweet?text=${encodeURIComponent(tweet)}`, '_blank');
 }
