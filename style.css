@@ -1,0 +1,302 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0d0f;
+  --surface: #16161a;
+  --border: #2a2a35;
+  --text: #f0f0f5;
+  --muted: #888899;
+  --accent: #ffcb05;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* HEADER */
+header { text-align: center; }
+
+.logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.6rem;
+  color: var(--accent);
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.logo span { color: #fff; }
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.search-box input {
+  flex: 1;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.search-box input:focus { border-color: var(--accent); }
+.search-box input::placeholder { color: var(--muted); }
+
+.search-box button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.search-box button:hover { opacity: 0.85; }
+.search-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ERROR */
+.error {
+  color: #ff6b6b;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  border-radius: 24px;
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  background: var(--surface);
+  position: relative;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 0;
+}
+
+.card-trainer-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.card-number {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+/* Sprite section */
+.card-sprite-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 16px;
+}
+
+.card-sprite-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--type-gradient, radial-gradient(ellipse at 50% 40%, #3a3a5c 0%, transparent 70%));
+  pointer-events: none;
+}
+
+#sprite {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
+}
+
+.type-badges {
+  display: flex;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.type-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: #fff;
+}
+
+/* Pokémon name */
+.card-pokemon-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 4px 20px 0;
+  line-height: 1.5;
+}
+
+/* Flavor text */
+.card-flavor {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 10px 24px;
+  line-height: 1.65;
+  font-style: italic;
+  min-height: 48px;
+}
+
+/* Stats grid */
+.card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--border);
+  margin: 0 0 0;
+}
+
+.stat {
+  background: var(--surface);
+  padding: 14px 18px;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* Personality blurb */
+.personality {
+  padding: 16px 22px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+/* Share button */
+.share-btn {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 16px;
+  background: #000;
+  color: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.share-btn:hover { background: #1a1a2e; border-color: var(--accent); }
+
+/* Footer */
+footer {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.8;
+}
+
+footer a { color: var(--muted); text-decoration: underline; }
+
+/* Utilities */
+.hidden { display: none !important; }
+
+/* Type colours */
+.type-fire     { background: #EE8130; }
+.type-water    { background: #6390F0; }
+.type-grass    { background: #7AC74C; color: #000; }
+.type-electric { background: #F7D02C; color: #000; }
+.type-psychic  { background: #F95587; }
+.type-ice      { background: #96D9D6; color: #000; }
+.type-dragon   { background: #6F35FC; }
+.type-dark     { background: #705746; }
+.type-fairy    { background: #D685AD; }
+.type-normal   { background: #A8A878; color: #000; }
+.type-fighting { background: #C22E28; }
+.type-flying   { background: #A98FF3; }
+.type-poison   { background: #A33EA1; }
+.type-ground   { background: #E2BF65; color: #000; }
+.type-rock     { background: #B6A136; }
+.type-bug      { background: #A6B91A; color: #000; }
+.type-ghost    { background: #735797; }
+.type-steel    { background: #B7B7CE; color: #000; }
+
+/* Type gradients for background glow */
+.glow-fire     { --type-gradient: radial-gradient(ellipse at 50% 40%, #EE813044 0%, transparent 70%); }
+.glow-water    { --type-gradient: radial-gradient(ellipse at 50% 40%, #6390F044 0%, transparent 70%); }
+.glow-grass    { --type-gradient: radial-gradient(ellipse at 50% 40%, #7AC74C44 0%, transparent 70%); }
+.glow-electric { --type-gradient: radial-gradient(ellipse at 50% 40%, #F7D02C44 0%, transparent 70%); }
+.glow-psychic  { --type-gradient: radial-gradient(ellipse at 50% 40%, #F9558744 0%, transparent 70%); }
+.glow-ice      { --type-gradient: radial-gradient(ellipse at 50% 40%, #96D9D644 0%, transparent 70%); }
+.glow-dragon   { --type-gradient: radial-gradient(ellipse at 50% 40%, #6F35FC44 0%, transparent 70%); }
+.glow-dark     { --type-gradient: radial-gradient(ellipse at 50% 40%, #70574644 0%, transparent 70%); }
+.glow-fairy    { --type-gradient: radial-gradient(ellipse at 50% 40%, #D685AD44 0%, transparent 70%); }
+.glow-normal   { --type-gradient: radial-gradient(ellipse at 50% 40%, #A8A87844 0%, transparent 70%); }
+.glow-fighting { --type-gradient: radial-gradient(ellipse at 50% 40%, #C22E2844 0%, transparent 70%); }
+.glow-flying   { --type-gradient: radial-gradient(ellipse at 50% 40%, #A98FF344 0%, transparent 70%); }
+.glow-poison   { --type-gradient: radial-gradient(ellipse at 50% 40%, #A33EA144 0%, transparent 70%); }
+.glow-ground   { --type-gradient: radial-gradient(ellipse at 50% 40%, #E2BF6544 0%, transparent 70%); }
+.glow-rock     { --type-gradient: radial-gradient(ellipse at 50% 40%, #B6A13644 0%, transparent 70%); }
+.glow-bug      { --type-gradient: radial-gradient(ellipse at 50% 40%, #A6B91A44 0%, transparent 70%); }
+.glow-ghost    { --type-gradient: radial-gradient(ellipse at 50% 40%, #73579744 0%, transparent 70%); }
+.glow-steel    { --type-gradient: radial-gradient(ellipse at 50% 40%, #B7B7CE44 0%, transparent 70%); }

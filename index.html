@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Pokémon Are You?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="page">
+    <header>
+      <div class="logo">Poké<span>Name</span></div>
+      <p class="tagline">Your name holds a secret. Let's find out which Pokémon you are.</p>
+    </header>
+
+    <div class="search-box">
+      <input
+        id="nameInput"
+        type="text"
+        placeholder="Enter your first name..."
+        maxlength="30"
+        autocomplete="off"
+      />
+      <button id="searchBtn" onclick="analyze()">
+        <span id="btnText">Discover</span>
+        <span id="btnLoader" class="hidden">...</span>
+      </button>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <!-- CARD -->
+    <div id="card" class="card hidden">
+      <div class="card-header">
+        <span id="cardName" class="card-trainer-name"></span>
+        <span id="cardNum" class="card-number"></span>
+      </div>
+
+      <div class="card-sprite-wrap">
+        <img id="sprite" src="" alt="Pokémon sprite" />
+        <div id="typeBadges" class="type-badges"></div>
+      </div>
+
+      <div class="card-pokemon-name" id="pokemonName"></div>
+
+      <div class="card-flavor" id="flavorText"></div>
+
+      <div class="card-stats">
+        <div class="stat">
+          <div class="stat-label">Generation</div>
+          <div class="stat-value" id="statGen"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Estimated Age</div>
+          <div class="stat-value" id="statAge"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Origin</div>
+          <div class="stat-value" id="statCountry"></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Vibe</div>
+          <div class="stat-value" id="statVibe"></div>
+        </div>
+      </div>
+
+      <div class="personality" id="personality"></div>
+
+      <button class="share-btn" onclick="shareOnTwitter()">
+        Share on 𝕏 Twitter
+      </button>
+    </div>
+
+    <footer>
+      Uses <a href="https://pokeapi.co" target="_blank">PokéAPI</a>,
+      <a href="https://agify.io" target="_blank">Agify</a>,
+      <a href="https://genderize.io" target="_blank">Genderize</a> &
+      <a href="https://nationalize.io" target="_blank">Nationalize</a>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
